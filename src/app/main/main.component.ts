@@ -8,6 +8,11 @@ import { Account} from '../../models/budget'
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  showVar: boolean = false;
+
+    toggleChild(){
+        this.showVar = !this.showVar;
+    }
 
   accounts: Account[];
   message: String = '';

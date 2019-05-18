@@ -5,4 +5,5 @@
   <a routerLink='account/{{account.id}}' class="list-group-item list-group-item-action"><div class="float-left">{{account.name}}</div><div class="float-right">{{account.account_balance | currency:'PLN'}}</div></a>
 </div>
 <div class="container"><br></div>
-<div class="container"><a routerLink='account' class="btn btn-info">Dodaj nowe konto</a></div>
+<div class="container"><button *ngIf='!showVar' label="Click" (click)="toggleChild()" class="btn btn-info">Dodaj nowe konto</button></div>
+<app-create-account [showMePartially]="showVar"></app-create-account>
