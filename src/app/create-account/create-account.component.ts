@@ -14,7 +14,7 @@ export class CreateAccountComponent implements OnInit {
   public accountForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    balance: new FormControl(''),
+    account_balance: new FormControl(''),
 })
 
 
@@ -29,8 +29,9 @@ export class CreateAccountComponent implements OnInit {
 onFormSubmit(form:NgForm) {
   this.api.addAccount(form)
     .subscribe(res => {
-        let id = res['_id'];
-        this.router.navigate(['/account', id]);
+      console.log(res['id'])
+        let id = res['id'];
+        this.router.navigate(['account', id]);
       }, (err) => {
         console.log(err);
       });
@@ -39,8 +40,8 @@ onFormSubmit(form:NgForm) {
   ngOnInit() {
     this.accountForm = this.formBuilder.group({
       'name' : [null, Validators.required],
-      'description' : [null, Validators.required],
-      'balance' : [null, Validators.required]
+      'description' : ['', ],
+      'account_balance' : [0.0, ]
     });
   }
 

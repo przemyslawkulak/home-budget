@@ -2,7 +2,14 @@
   main works!
 </p>
 <div *ngFor='let account of accounts'  class="list-group container">
-  <a routerLink='account/{{account.id}}' class="list-group-item list-group-item-action"><div class="float-left">{{account.name}}</div><div class="float-right">{{account.account_balance | currency:'PLN'}}</div></a>
+  <a routerLink='account/{{account.id}}' class="list-group-item list-group-item-action">
+    <div class="float-left">{{account.name}}</div>
+    <div class='float-right pl-2'><button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button></div>
+    <div class='float-right pl-2'><a class='btn btn-light btn-sm'>Edit</a></div>
+    <div class="float-right">{{account.account_balance | currency:'PLN'}}</div>
+  </a>
 </div>
 <div class="container"><br></div>
 <div class="container"><button *ngIf='!showVar' label="Click" (click)="toggleChild()" class="btn btn-info">Dodaj nowe konto</button></div>
