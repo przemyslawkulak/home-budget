@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
   constructor(private aS:DataService) { }
 
   ngOnInit() {
-    this.aS.allAcounts().subscribe(
+    this.aS.allAccounts().subscribe(
       (data)=>{
         this.accounts = data;
       },
