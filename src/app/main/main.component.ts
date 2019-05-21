@@ -8,11 +8,11 @@ import { Account} from '../../models/budget'
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  showVar: boolean = false;
+  showVar: String = 'None';
 
-    toggleChild(){
-        this.showVar = !this.showVar;
-    }
+    // editOrCreate(){
+    //     this.showVar = !this.showVar;
+    // }
 
   accounts: Account[];
   message: String = '';
@@ -33,8 +33,5 @@ export class MainComponent implements OnInit {
     console.table(this.accounts)
   }
 
-  open(e){
-    // this will stop event to propagate to work on link click.
-    e.stopPropagation();
-  }
+
 }
