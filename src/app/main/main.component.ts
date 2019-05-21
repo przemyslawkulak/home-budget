@@ -33,4 +33,8 @@ export class MainComponent implements OnInit {
     console.table(this.accounts)
   }
 
+  open(e){
+    // this will stop event to propagate to work on link click.
+    e.stopPropagation();
+  }
 }

@@ -7,6 +7,7 @@ import { MainComponent } from './main/main.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountEditComponent } from './account-edit/account-edit.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     MainComponent,
     AccountDetailsComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AccountEditComponent
   ],
   imports: [
     BrowserModule,
