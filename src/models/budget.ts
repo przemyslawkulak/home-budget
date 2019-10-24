@@ -1,33 +1,33 @@
-export interface Account{
-    id: Number;
-    name:String;
-    description?: String;
-    account_balance?: Number;
-  }
+export interface AccountData {
+  id: any;
+  name: string;
+  description?: string;
+  account_balance?: number;
+}
 
-export interface Category{
-    id: Number;
-    name:String;
-  }
+export interface Category {
+  id: number;
+  name: string;
+}
 
-export interface Payee{
-    id: Number;
-    name:String;
-  }
+export interface Payee {
+  id: number;
+  name: string;
+}
 
-export interface Transaction{
-    id: Number;
-    author: any;
-    type: Number;
-    payee: any;
-    category: any;
-    description: String;
-    amount: Number;
-    date: Date;
-  }
+export interface Transaction {
+  id: number;
+  author: any;
+  type: number;
+  payee: any;
+  category: any;
+  description: string;
+  amount: number;
+  date: Date;
+}
 
-  export interface Payee{
-    id: Number;
-    username: String;
-    date_joined: Date;
-  }
+export interface Payee {
+  id: number;
+  username: string;
+  date_joined: Date;
+}

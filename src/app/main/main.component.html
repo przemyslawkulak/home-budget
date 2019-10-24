@@ -1,19 +1,36 @@
-<br>
-<div *ngFor='let account of accounts'  class="list-group container">
+<br />
+<div *ngFor="let account of accounts" class="list-group container">
   <div class="d-inline list-group-item list-group-item-action">
-    <a routerLink='account/{{account.id}}' >
-      <div class="float-left">{{account.name}}</div>  
+    <a routerLink="account/{{ account.id }}">
+      <div class="float-left">{{ account.name }}</div>
     </a>
-    <div class='float-right'><button type="button" class="close" aria-label="Close">
+    <div class="float-right">
+      <button type="button" class="close" aria-label="Close">
         <span aria-hidden="true">&times;</span>
-    </button></div>
-    <div class='float-right'>
-      <a label="Click" (click)="showVar = 'edit'" class='btn btn-light btn-sm'>Edit</a>
+      </button>
     </div>
-    <div class="float-right">{{account.account_balance | currency:'PLN'}}</div>
+    <div class="float-right">
+      <button
+        [routerLink]="['editAccount', account.id]"
+        class="btn btn-light btn-sm"
+      >
+        Edit {{ account.id }}
+      </button>
+    </div>
+    <div class="float-right">
+      {{ account.account_balance | currency: "PLN" }}
+    </div>
   </div>
 </div>
-<div class="container"><br></div>
-<div class="container"><button  *ngIf="showVar=='None'" label="Click" (click)="showVar = 'create'" class="btn btn-info">Dodaj nowe konto</button></div>
-<app-create-account *ngIf="showVar=='create'"></app-create-account>
-<app-account-edit  *ngIf="showVar=='edit'"></app-account-edit>
+<div class="container"><br /></div>
+<div class="container">
+  <button
+    *ngIf="router.url === '/'"
+    routerLink="createAccount"
+    label="Click"
+    class="btn btn-info"
+  >
+    Create new account
+  </button>
+</div>
+<router-outlet></router-outlet>

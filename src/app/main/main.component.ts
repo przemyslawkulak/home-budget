@@ -1,37 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { Account} from '../../models/budget'
+import { Component, OnInit } from "@angular/core";
+import { DataService } from "../services/data.service";
+import { AccountData } from "../../models/budget";
+import { AccountService } from "../services/account.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  selector: "app-main",
+  templateUrl: "./main.component.html"
 })
 export class MainComponent implements OnInit {
-  showVar: String = 'None';
+  accounts: AccountData[];
+  message = "";
 
-    // editOrCreate(){
-    //     this.showVar = !this.showVar;
-    // }
-
-  accounts: Account[];
-  message: String = '';
-
-
-  constructor(private aS:DataService) { }
-
-  ngOnInit() {
-    this.aS.allAccounts().subscribe(
-      (data)=>{
+  constructor(
+    private aS: DataService,
+    private accountService: AccountService,
+    public router: Router
+  ) {
+    console.log(router.url === "/");
+    this.accountService.allAccounts().subscribe(
+      data => {
         this.accounts = data;
+        console.log(this.accounts);
       },
-      (error) => {
+      error => {
         this.message = "Error. Try again later.";
         console.log(error);
       }
-      );
-    console.table(this.accounts)
+    );
   }
 
-
+  ngOnInit() {}
 }
